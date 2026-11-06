@@ -19,11 +19,11 @@ public:
     void setId(int i);
     void setScore(double s);   // 改成绩
 
-    std::string getName();
-    int getId();
-    double getScore();
+    std::string getName() const;
+    int getId() const;
+    double getScore() const;
 
-    void print();              // 打印全部信息
+    void print() const;        // 打印全部信息
 };
 
 #endif

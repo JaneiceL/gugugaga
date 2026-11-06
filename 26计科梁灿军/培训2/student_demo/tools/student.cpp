@@ -31,22 +31,22 @@ void Student::setScore(double s)
     score = s;
 }
 
-std::string Student::getName()
+std::string Student::getName() const
 {
     return name;
 }
 
-int Student::getId()
+int Student::getId() const
 {
     return id;
 }
 
-double Student::getScore()
+double Student::getScore() const
 {
     return score;
 }
 
-void Student::print()
+void Student::print() const
 {
     std::cout << "姓名: " << name
               << "  学号: " << id

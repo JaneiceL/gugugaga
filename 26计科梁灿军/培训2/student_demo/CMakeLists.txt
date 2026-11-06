@@ -19,4 +19,4 @@ add_executable(main
 )
 
 # main 链接静态库
-target_link_libraries(main Student)
+target_link_libraries(main PRIVATE Student)

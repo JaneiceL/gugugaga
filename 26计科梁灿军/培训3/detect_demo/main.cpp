@@ -101,7 +101,12 @@ bool pickPair(const std::vector<Bar>& bars, size_t& ia, size_t& ib)
             if (dist < 0.8f * lenMax) continue;
             if (dist > 4.0f * lenMax) continue;
 
-            float score = dAngle + dLen * 20.0f;
+            // 距离也要参与打分，不能只做区间过滤。
+            // 装甲板两根灯条的间距约是灯条长的 2 倍（视频实测中位 1.92）。
+            // 只过滤 0.8L~4L 的话，远处一根红色细长干扰物也能落在范围内，
+            // 而且它往往比真灯条更"正"（倾角更接近 0），光比角度差它会赢。
+            float dDist = std::fabs(dist - 2.0f * lenMax) / lenMax;
+            float score = dAngle + dLen * 20.0f + dDist * 10.0f;
             if (score < best)
             {
                 best = score;

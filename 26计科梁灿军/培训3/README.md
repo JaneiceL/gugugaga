@@ -46,7 +46,10 @@ cmake -S . -B build
 cmake --build build
 ./build/main armor.png     # 静态图，弹窗 + 存 result.png
 ./build/main video.mp4     # 视频，ESC 退出
+./build/main /绝对路径/xxx.mp4   # 给绝对路径也行
 ```
+
+输入路径从命令行 `argv[1]` 读，没有写死。不带参数运行会打印用法再退出。
 
 `video.mp4` 就是群里发的素材（1.1 MB），已经放进 `detect_demo/`，clone 下来直接能跑。
 
@@ -62,7 +65,7 @@ cmake --build build
 
 ![运行中](shots/detect_running.png)
 
-完整运行过程见 [演示视频.mp4](演示视频.mp4)（19 秒，570 帧全部检出）。
+完整运行过程见 [演示视频.zip](演示视频.zip)（28 秒录屏，里面播的就是 19 秒的素材，570 帧全部检出）。
 
 ### 三个数字都是量出来的
 

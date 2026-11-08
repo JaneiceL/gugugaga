@@ -230,11 +230,16 @@ cv::Mat detect(const cv::Mat& frame, bool& found)
 
 int main(int argc, char** argv)
 {
-    std::string src = "armor.png";
-    if (argc > 1)
+    // 输入路径从命令行拿，不写死
+    if (argc < 2)
     {
-        src = argv[1];
+        std::cout << "用法: " << argv[0] << " <图片或视频路径>" << std::endl;
+        std::cout << "  " << argv[0] << " armor.png       静态图" << std::endl;
+        std::cout << "  " << argv[0] << " video.mp4       视频" << std::endl;
+        std::cout << "  路径可以是相对路径，也可以是绝对路径" << std::endl;
+        return -1;
     }
+    std::string src = argv[1];
 
     // 能当图片读就当图片，读不了再当视频
     cv::Mat img = cv::imread(src);
